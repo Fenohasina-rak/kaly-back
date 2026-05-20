@@ -5,6 +5,7 @@ public class AuthenticationOutput {
     private String comment;
     private UserOutput user;
 
+
     public Boolean getAuthenticated() {
         return isAuthenticated;
     }
@@ -33,7 +34,7 @@ public class AuthenticationOutput {
     public String toString() {
         return "AuthenticationOutput{" +
                 "isAuthenticated=" + isAuthenticated +
-                ", user=" + user.toString() +
+                ", user=" + user +
                 '}';
     }
 }

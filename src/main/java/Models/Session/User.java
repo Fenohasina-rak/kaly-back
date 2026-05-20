@@ -21,4 +21,7 @@ public class User extends PanacheEntityBase {
 
     @Column(name="user_role")
     public String role;
+
+    @Column(name="refresh_token")
+    public String refreshToken;
 }

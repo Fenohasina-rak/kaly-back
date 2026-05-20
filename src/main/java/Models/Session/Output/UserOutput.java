@@ -4,7 +4,8 @@ public class UserOutput {
     private String username;
     private String token;
     private String type;
-    private String expirationTime;
+    private Integer expirationTime;
+    private String refreshToken;
 
     public String getUsername() {
         return username;
@@ -30,12 +31,20 @@ public class UserOutput {
         this.type = type;
     }
 
-    public String getExpirationTime() {
+    public Integer getExpirationTime() {
         return expirationTime;
     }
 
-    public void setExpirationTime(String expirationTime) {
+    public void setExpirationTime(Integer expirationTime) {
         this.expirationTime = expirationTime;
+    }
+
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
     }
 
     @Override
@@ -44,7 +53,8 @@ public class UserOutput {
                 "username='" + username + '\'' +
                 ", token='" + token + '\'' +
                 ", type='" + type + '\'' +
-                ", expirationTime='" + expirationTime + '\'' +
+                ", expirationTime=" + expirationTime +
+                ", refreshToken='" + refreshToken + '\'' +
                 '}';
     }
 }
