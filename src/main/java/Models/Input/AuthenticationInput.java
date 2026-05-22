@@ -1,4 +1,4 @@
-package Models.Session.Input;
+package Models.Input;
 
 public class AuthenticationInput {
     private  String username;

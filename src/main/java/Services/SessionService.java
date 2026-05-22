@@ -1,9 +1,9 @@
 package Services;
 
-import Models.Session.Output.AuthenticationOutput;
-import Models.Session.Output.LogoutOutput;
-import Models.Session.Output.UserOutput;
-import Models.Session.User;
+import Models.Output.AuthenticationOutput;
+import Models.Output.LogoutOutput;
+import Models.Output.UserOutput;
+import Models.Entities.User;
 import Repositories.UserRepository;
 import Utils.HashingUtils;
 import io.smallrye.jwt.build.Jwt;

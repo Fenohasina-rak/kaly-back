@@ -1,7 +1,7 @@
 package Repositories;
 
 
-import Models.Session.User;
+import Models.Entities.User;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 

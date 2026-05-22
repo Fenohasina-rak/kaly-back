@@ -1,4 +1,4 @@
-package Models.Session.Output;
+package Models.Output;
 
 public class CheckAuthenticationOutput {
     private Boolean isAuthenticated;

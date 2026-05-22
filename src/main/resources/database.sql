@@ -35,4 +35,7 @@ CREATE TABLE users (
 ) ENGINE=INNODB;
 
 
-alter table users ADD refresh_token TEXT;
+alter table users ADD COLUMN refresh_token TEXT;
+
+ALTER TABLE `meal_items`
+    ADD COLUMN userId VARCHAR(255) NOT NULL CONSTRAINT fk_meal_user_id REFERENCES `users` (id);

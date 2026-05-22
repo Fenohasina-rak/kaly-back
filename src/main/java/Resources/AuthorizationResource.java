@@ -1,11 +1,10 @@
 package Resources;
 
-import Models.Session.Input.AuthenticationInput;
-import Models.Session.Input.LogoutInput;
-import Models.Session.Input.RefreshTokenInput;
-import Models.Session.Output.AuthenticationOutput;
-import Models.Session.Output.CheckAuthenticationOutput;
-import Models.Session.Output.LogoutOutput;
+import Models.Input.AuthenticationInput;
+import Models.Input.RefreshTokenInput;
+import Models.Output.AuthenticationOutput;
+import Models.Output.CheckAuthenticationOutput;
+import Models.Output.LogoutOutput;
 import Services.SessionService;
 import io.quarkus.security.Authenticated;
 import jakarta.inject.Inject;

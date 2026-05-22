@@ -1,4 +1,4 @@
-package Models.Session;
+package Models.Entities;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
