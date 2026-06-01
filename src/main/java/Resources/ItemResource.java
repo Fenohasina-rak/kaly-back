@@ -1,7 +1,9 @@
 package Resources;
 
 import Models.Entities.Item;
+import Models.Input.AddCutsomItemInput;
 import Models.Input.ItemSearchInput;
+import Models.Output.AddCustomItemOutput;
 import Models.Output.LogoutOutput;
 import Services.ItemService;
 import io.quarkus.security.Authenticated;
@@ -30,5 +32,14 @@ public class ItemResource {
     @Authenticated
     public List<Item> searchItem(ItemSearchInput input) {
         return itemService.searchItemAutoComplete(input.getSearchKey());
+    }
+
+    @GET
+    @Path("/addcustomitem")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Authenticated
+    public AddCustomItemOutput addCustomItem(AddCutsomItemInput input) {
+       return  itemService.addCustomItem(input.getName(), input.getCalories());
     }
 }

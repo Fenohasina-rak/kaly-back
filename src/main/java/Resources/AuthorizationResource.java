@@ -18,13 +18,13 @@ import java.security.Principal;
 
 @Path("/api/auth")
 public class AuthorizationResource {
-    @Inject
-    JsonWebToken jwt;
+    private JsonWebToken jwt;
 
     private SessionService sessionService;
 
     @Inject
-    public AuthorizationResource(SessionService sessionService) {
+    public AuthorizationResource(SessionService sessionService,JsonWebToken jwt ) {
+        this.jwt = jwt;
         this.sessionService = sessionService;
     }
 
