@@ -19,7 +19,14 @@ public class Item extends PanacheEntityBase {
     @Column(name="calories")
     public Integer calories;
 
+    public Item(Integer id, String name, Integer calories) {
+        this.id = id;
+        this.name = name;
+        this.calories = calories;
+    }
 
+    public Item() {
+    }
 
     public Integer getId() {
         return id;
@@ -44,4 +51,5 @@ public class Item extends PanacheEntityBase {
     public void setCalories(Integer calories) {
         this.calories = calories;
     }
+
 }

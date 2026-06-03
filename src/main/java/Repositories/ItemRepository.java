@@ -1,14 +1,14 @@
 package Repositories;
 
+
 import Models.Entities.CustomItem;
 import Models.Entities.Item;
-import Models.Entities.User;
-import Utils.ItemUtils;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 
 import java.util.List;
+
 
 @ApplicationScoped
 public class ItemRepository {
@@ -22,11 +22,29 @@ public class ItemRepository {
             newItem.setCalories(calories);
             newItem.setName(name);
             newItem.setUserId(userId);
-            PanacheEntityBase.persist(newItem);
-            PanacheEntityBase.flush();
+            newItem.persist();
             return true;
         } catch (Exception e) {
             return false;
         }
     }
+
+    public List<Models.Entities.Records.CustomItem> listAllCustomItemsByUser(String userId){
+        List<CustomItem> listCustomItem = CustomItem.find("userId", userId).list();
+        return listCustomItem
+                .stream()
+                .map(item -> new Models.Entities.Records.CustomItem(item.getId(), item.getName(), item.getCalories() , item.getUserId()))
+                .toList();
+    }
+
+    @Transactional
+    public Boolean deleteItemByName(String itemName) {
+        try {
+            long deletedCount = CustomItem.delete("name", itemName);
+            return deletedCount > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }

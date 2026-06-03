@@ -1,12 +1,10 @@
 package Models.Output;
 
-public class AddCustomItemOutput {
+public class AddCustomItemOutput extends Response {
     private String isAdded;
-    private String comment;
 
     public AddCustomItemOutput() {
     }
-
     public String getIsAdded() {
         return isAdded;
     }
@@ -15,11 +13,4 @@ public class AddCustomItemOutput {
         this.isAdded = isAdded;
     }
 
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
 }
