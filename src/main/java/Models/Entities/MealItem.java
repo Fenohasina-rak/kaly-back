@@ -3,6 +3,7 @@ package Models.Entities;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 
+@Entity
 @Table(name="meal_items")
 public class MealItem extends PanacheEntityBase {
     @Id

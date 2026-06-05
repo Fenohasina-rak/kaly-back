@@ -11,7 +11,7 @@ import java.util.List;
 @ApplicationScoped
 public class MealRepository {
     @Transactional
-    public Boolean addMeal(String name, Integer calories, String userId, String description){
+    public Meals addMeal(String name, Integer calories, String userId, String description){
         try {
             Meals meal = new Meals();
             meal.setCalories(calories);
@@ -19,42 +19,36 @@ public class MealRepository {
             meal.setDescription(description);
             meal.setUserId(userId);
             meal.persist();
-            return true;
+            return meal;
         } catch (Exception e) {
-            return false;
+            return new Meals();
         }
     }
 
-    @Transactional
-    public Boolean addItemToMeal(Integer mealId, Integer itemId, Integer quantity){
-        try {
-            MealItem mealItem = new MealItem();
-            mealItem.setMealId(mealId);
-            mealItem.setItemId(itemId);
-            mealItem.setQuantity(quantity);
-            mealItem.persist();
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+
+    public void addItemToMeal(Integer mealId, Integer itemId, Integer quantity){
+        MealItem mealItem = new MealItem();
+        mealItem.setMealId(mealId);
+        mealItem.setItemId(itemId);
+        mealItem.setQuantity(quantity);
+        mealItem.persist();
     }
 
-    @Transactional
-    public Boolean addCustomItemToMeal(Integer mealId, Integer customItemId, Integer quantity){
-        try {
-            MealItem mealItem = new MealItem();
-            mealItem.setMealId(mealId);
-            mealItem.setCustomItemId(customItemId);
-            mealItem.setQuantity(quantity);
-            mealItem.persist();
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+    public void addCustomItemToMeal(Integer mealId, Integer customItemId, Integer quantity){
+        MealItem mealItem = new MealItem();
+        mealItem.setMealId(mealId);
+        mealItem.setCustomItemId(customItemId);
+        mealItem.setQuantity(quantity);
+        mealItem.persist();
     }
 
     public List<Meals> getAllMealsByUser(String userId){
         return Meals.find("userId", userId).list();
+    }
+
+    public  void updateCaloriesMeal(Integer mealId, Integer caloriesToAdd){
+        Meals meal = Meals.find("id", mealId).firstResult();
+        meal.setCalories(meal.getCalories() + caloriesToAdd);
     }
 
 }

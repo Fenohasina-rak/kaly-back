@@ -8,6 +8,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @ApplicationScoped
@@ -37,6 +38,10 @@ public class ItemRepository {
                 .toList();
     }
 
+    public Optional<CustomItem> getCustomItemByUserById(String userId, Integer id){
+        return CustomItem.find("userId = ?1 and id = ?2 ", userId, id).firstResultOptional();
+    }
+
     @Transactional
     public Boolean deleteItemByName(String itemName) {
         try {
@@ -46,5 +51,6 @@ public class ItemRepository {
             return false;
         }
     }
+
 
 }

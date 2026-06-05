@@ -18,6 +18,7 @@ public class ItemUtils {
     private ItemRepository itemRepository;
     public static final List<Item> listItems = new ArrayList<>();
     public static final Map<String, Item> itemMap = new HashMap<>();
+    public static final Map<Integer, Item> itemMapById = new HashMap<>();
 
     @Inject
     public ItemUtils(ItemRepository itemRepository) {
@@ -27,5 +28,6 @@ public class ItemUtils {
     void onStart(@Observes StartupEvent event) {
         listItems.addAll(itemRepository.listAllItems());
         listItems.forEach(item -> itemMap.put(item.name.trim().toLowerCase(), item));
+        listItems.forEach(item -> itemMapById.put(item.id, item));
     }
 }

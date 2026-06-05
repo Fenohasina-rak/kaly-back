@@ -2,6 +2,7 @@ package Resources;
 
 import Models.Input.AddItemToMealInput;
 import Models.Input.CreateNewMealInput;
+import Models.Output.AddMealOuput;
 import Models.Output.Response;
 import Services.MealService;
 import io.quarkus.security.Authenticated;
@@ -24,7 +25,7 @@ public class MealResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Authenticated
-    public Response addMeal(CreateNewMealInput input) {
+    public AddMealOuput addMeal(CreateNewMealInput input) {
         return mealService.createNewMeal(input);
     }
 

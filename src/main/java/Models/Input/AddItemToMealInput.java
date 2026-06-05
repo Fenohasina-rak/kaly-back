@@ -1,9 +1,13 @@
 package Models.Input;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+
 public class AddItemToMealInput {
     private Integer mealId;
     private Integer itemId;
     private Integer quantity;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer customItemId;
 
     public AddItemToMealInput() {
